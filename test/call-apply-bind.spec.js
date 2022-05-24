@@ -36,6 +36,15 @@ test("apply null with params [1,2]", () => {
   expect(sum.$apply(null, ["a", "b"]).a).toBe("a");
 });
 
+test("apply null without params", () => {
+  function sum(a, b) {
+    this.a = a;
+    this.b = b;
+    return this;
+  }
+  expect(sum.$apply(null).a).toBe(undefined);
+});
+
 test("bind without new [1,2]", () => {
   function sum(a, b, c) {
     this.a = a;

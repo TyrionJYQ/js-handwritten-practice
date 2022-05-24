@@ -12,7 +12,8 @@ export default function registerCallApplyBind() {
     let ctx = args.shift(0);
     ctx = ctx === null ? {} : ctx;
     ctx.fn = this;
-    return ctx.fn(...args[0]);
+    const rest = args[0] ? args[0] : [];
+    return ctx.fn(...rest);
   };
 
   Function.prototype.$bind = function (ctx) {
