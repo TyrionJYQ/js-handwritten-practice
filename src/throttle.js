@@ -5,7 +5,7 @@ export default function throttle(fn, interval = 1000) {
     const ctx = this;
     if (!excuted) {
       excuted = true;
-      return fn.call(ctx, ...arguments);
+      return fn.call(ctx, ...arguments); // if not called, called right now
     }
     if (timer) {
       return;
